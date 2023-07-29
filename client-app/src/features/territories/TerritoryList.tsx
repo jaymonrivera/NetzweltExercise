@@ -8,7 +8,12 @@ export default observer(function TerritoryList() {
     const { treeNodeList } = territoryStore;
     
     return (
-        <TreeMenu data={treeNodeList} />
+        <>
+            <h1>Territories</h1>
+            <p>Here are the list of territories</p>
+            <TreeMenu data={treeNodeList} />
+        </>
+     
     );
 })
 
