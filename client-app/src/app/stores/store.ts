@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import CommonStore from "./commonStore";
 import TerritoryStore from "./territoryStore";
 import UserStore from "./userStore";
 
@@ -6,13 +7,16 @@ import UserStore from "./userStore";
 
 interface Store {
     territoryStore: TerritoryStore
-    userStore:UserStore
+    userStore: UserStore,
+    commonStore: CommonStore
 
 }
 
 export const store: Store = {
     territoryStore: new TerritoryStore(),
-    userStore: new UserStore()
+    userStore: new UserStore(),
+    commonStore: new CommonStore(),
+
 }
 
 export const StoreContext = createContext(store);

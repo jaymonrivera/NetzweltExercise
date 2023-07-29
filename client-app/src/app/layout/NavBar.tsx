@@ -1,28 +1,40 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { Button, Container, Menu } from 'semantic-ui-react'
+import { Link, NavLink } from 'react-router-dom';
+import { Button, Container, Dropdown, Image, Menu } from 'semantic-ui-react'
 import { useStore } from '../stores/store';
 
 
-export default function NavBar() {
+export default observer (function NavBar() {
 
-    const { territoryStore } = useStore();
+    const { userStore: { user, logout} } = useStore();
     return (
         <Menu inverted fixed='top'>
             <Container>
-                <Menu.Item as={NavLink} to='/' header>
+                <Menu.Item header>
                     <img src="/assets/logo.png" alt="logo" style={{ marginRight: '10px' }} />
                     Netzwelt
                 </Menu.Item>
                 {/*<Menu.Item as={NavLink} to='/territories/all' name='Territories'>*/}
                 {/*</Menu.Item>*/}
-                {/*<Menu.Item>*/}
-                {/*    <Button as={NavLink} to='createActivity' positive content='Create Activity'  />*/}
-                {/*</Menu.Item>*/}
+
+                {
+ user !== null?(<Menu.Item position='right'>
+     <Image src='/assets/user.png' avatar spaced='right'></Image>
+     <Dropdown pointing='top left' text={user?.displayName} >
+         <Dropdown.Menu>
+             <Dropdown.Item onClick={logout} text='Logout' icon='power' />
+         </Dropdown.Menu>
+
+     </Dropdown>
+ </Menu.Item>):<></>
+
+                }
+               
             </Container>
         </Menu>
 
     )
             
     
-}
+})
