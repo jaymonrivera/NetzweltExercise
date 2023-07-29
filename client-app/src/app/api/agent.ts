@@ -22,8 +22,8 @@ const sleep = (delay: number) => {
 //axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
 
 
-//axios.defaults.baseURL = 'https://netzwelt-devtest.azurewebsites.net'
-axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.baseURL = 'https://netzwelt-devtest.azurewebsites.net'
+//axios.defaults.baseURL = 'http://localhost:5000'
 
 
 
