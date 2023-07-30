@@ -5,6 +5,6 @@ export default class SiteConstant {
     public static readonly base_URL = 'https://netzwelt-devtest.azurewebsites.net';
 
     //CHANGE TO TRUE IF YOU WANT TO CHECK THE FUNCTIONALITY IF API IS NOT WORKING
-    public static UseDummyConnection = false;
+    public static UseDummyConnection = true;
 
 }

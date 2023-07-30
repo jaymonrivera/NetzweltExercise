@@ -32,6 +32,7 @@ export default class UserStore {
 
             }
             else {
+                //FOR DEMO PURPOSE IF API IS NOT WORKING
                 if (creds.username === 'foo' && creds.password === 'bar') {
 
                     _self.getUser();
