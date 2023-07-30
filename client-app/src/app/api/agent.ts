@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { Territory } from "../models/Territory";
 import { User, UserFormValues } from "../models/User";
-const cors = require('cors');
+/*const cors = require('cors');*/
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
         setTimeout(resolve, delay)

@@ -1,7 +1,6 @@
-import { Table } from 'semantic-ui-react'
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../app/stores/store';
 import TreeMenu from 'react-simple-tree-menu';
+import { useStore } from '../../app/stores/store';
 
 export default observer(function TerritoryList() {
     const { territoryStore } = useStore();

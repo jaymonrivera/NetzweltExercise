@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { TreeNodeInArray } from "react-simple-tree-menu";
 import agent from "../api/agent";
 import { Territory } from "../models/Territory";

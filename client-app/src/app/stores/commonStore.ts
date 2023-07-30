@@ -1,5 +1,4 @@
 import { makeAutoObservable, reaction } from "mobx";
-import { router } from "../router/Routes";
 
 
 export default class CommonStore {

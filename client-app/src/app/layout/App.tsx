@@ -24,7 +24,7 @@ function App() {
         }
 
         territoryStore.loadTerritoryList ();
-    }, [territoryStore, commonStore])
+    }, [territoryStore, commonStore,userStore])
 
 
 

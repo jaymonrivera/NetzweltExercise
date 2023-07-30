@@ -1,7 +1,7 @@
 
  
 import { ErrorMessage, Form, Formik } from "formik"
-import { Button, Label } from "semantic-ui-react"
+import { Button, Grid, GridColumn, Label } from "semantic-ui-react"
 import * as Yup from 'yup'
 import CommonTextInput from "../../app/common/CommonTextInput"
 import { useStore } from "../../app/stores/store"
@@ -17,23 +17,30 @@ export default function LoginForm() {
 
     return (
 
-        <Formik validationSchema={validationSchema} initialValues={{ username: '', password: '',error:null }}
-            onSubmit={(values: any, { setErrors }) => userStore.login(values).catch((error) => setErrors({error: 'Invalid username or password'}))}>
-    
-            {({handleSubmit, isSubmitting, errors}) =>(
+        <Grid columns={12} stackable centered >
+            <GridColumn width='6'>
+                <Formik validationSchema={validationSchema} initialValues={{ username: '', password: '', error: null }} key='test'
 
-                <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
-                 
-                        <CommonTextInput placeholder='Email' name='username'/>
-                        <CommonTextInput placeholder='Password' name='password' type='password' ></CommonTextInput>
-                    <ErrorMessage name='error' render={() => <Label color='red' content='Invalid username or password'  ></Label>}>
-                    </ErrorMessage>
-                   
-                    <Button loading={ isSubmitting} positive type='submit' content='Login' fluid />
-                </Form>
+                    onSubmit={(values: any, { setErrors }) => userStore.login(values).catch((error) => setErrors({ error: 'Invalid username or password' }))}>
 
-            )}
-        </Formik>
+                    {({ handleSubmit, isSubmitting, errors }) => (
+
+                        <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
+                            <ErrorMessage name='error' render={() => <Label color='red' content='Invalid username or password' className='error-message'  ></Label>}>
+                            </ErrorMessage>
+                            <CommonTextInput placeholder='Email' name='username' />
+                            <CommonTextInput placeholder='Password' name='password' type='password' ></CommonTextInput>
+                           
+
+                            <Button loading={isSubmitting} positive type='submit' content='Login' fluid />
+                        </Form>
+
+                    )}
+                </Formik>
+            </GridColumn>
+            
+         </Grid>
+        
     
     )
 }

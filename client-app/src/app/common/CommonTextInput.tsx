@@ -13,11 +13,11 @@ export default function CommonTextInput(props: Props) {
     const [field, meta] = useField(props.name);
 
     return (
-        <Form.Field error={meta.touched && !!meta.error}>
-            <label>{props.label}</label>
+        <Form.Field error={meta.touched && !!meta.error} >
+            <Label>{props.label}</Label>
             <input {...field} {...props}  />
             {meta.touched && meta.error ? (
-                <Label basic color='red'>{meta.error}</Label>
+                <label color='red' style={{ marginLeft: '0.5em', marginTop: '0.5em' }}>{meta.error}</label>
               
             ) : null}
         </Form.Field>
