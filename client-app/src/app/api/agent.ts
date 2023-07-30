@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import SiteConstant from "../helper/site-constant";
 import { Territory } from "../models/Territory";
 import { User, UserFormValues } from "../models/User";
 /*const cors = require('cors');*/
@@ -22,7 +23,7 @@ const sleep = (delay: number) => {
 //axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
 
 
-axios.defaults.baseURL = 'https://netzwelt-devtest.azurewebsites.net'
+axios.defaults.baseURL = SiteConstant.base_URL;
 //axios.defaults.baseURL = 'http://localhost:5000'
 
 

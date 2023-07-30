@@ -1,7 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import { TreeNodeInArray } from "react-simple-tree-menu";
 import agent from "../api/agent";
+import SiteConstant from "../helper/site-constant";
 import { Territory } from "../models/Territory";
+import { store } from "./store";
+
 
 export default class TerritoryStore {
     treeNodeList: []|any = undefined;
@@ -9,6 +12,7 @@ export default class TerritoryStore {
     loading = false;
     loadingInitial = false;
     territoryListRegistry = new Map<string, Territory>();
+ 
 
     constructor() {
         makeAutoObservable(this)
@@ -167,11 +171,19 @@ export default class TerritoryStore {
               ]
             `;
 
-            //DUMMY DATA
-            //const territoryList = JSON.parse(json) as Territory[];
+            let territoryList: Territory[] = [];
 
-            //API DATA
-            const territoryList = await agent.Territories.list();
+            if (!SiteConstant.UseDummyConnection) {
+                //API DATA
+                territoryList = await agent.Territories.list();
+            }
+            else {
+                //DUMMY DATA
+                territoryList = JSON.parse(json) as Territory[];
+            }
+           
+
+            
 
   
             const treeNodeList = this.getChildIds(territoryList, null);

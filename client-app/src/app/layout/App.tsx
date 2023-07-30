@@ -18,6 +18,8 @@ function App() {
 
         if (commonStore.token) {
             userStore.getUser().finally(() => commonStore.setAppLoaded())
+            router.navigate('/');
+
         } else {
             commonStore.setAppLoaded();
             router.navigate('/account/login');
